@@ -1,18 +1,40 @@
 <% layout('/layout/boilerplate') %>
 
-<body>
-    <h1> <%= singleList.title %></h1>
-    <ul>
-        <li> <%= singleList.title %></li>
-        <li> <%= singleList.description %></li>
-        <li> &#8377;<%= singleList.price.toLocaleString("en-IN") %></li>
-        <li> <%= singleList.location %></li>
-        <li> <%= singleList.country %></li>
-    </ul>
-    <br>
-    <a href="/listings/<%= singleList._id%>/edit">Edit this Listing</a>
-    <br><br>
-    <form method="post" action="/listings/<%=singleList._id %>?_method=DELETE">
-        <button>Delete</button>
-    </form>
-</body>
+    <div class="row">
+        <div class="col mb-3">
+            <img class="listImg" src="<%= singleList.image.url%>" alt="listingImage">
+        </div>
+
+        <div class="col">
+            <h1 class="mb-3">
+                <b>
+                    <%= singleList.title %>
+                </b>
+            </h1>
+            <ul>
+                <li>
+                    <%= singleList.description %>
+                </li>
+                <li> &#8377;<%= singleList.price.toLocaleString("en-IN") %>
+                </li>
+                <li><i class="fa-solid fa-location-dot"></i>
+                    <%= singleList.location %>
+                </li>
+                <li><i class="fa-solid fa-location-dot"></i>
+                    <%= singleList.country %>
+                </li>
+            </ul>
+            <br>
+
+            <div class="button ml-5 mb-3">
+                <a href="/listings/<%= singleList._id%>/edit" class="btn btn-dark">Edit this Listing</a>
+
+                <form method="post" action="/listings/<%=singleList._id %>?_method=DELETE">
+                    <button class="btn btn-dark">Delete</button>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>

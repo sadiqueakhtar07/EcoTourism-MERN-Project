@@ -113,8 +113,25 @@ body {
 }
 
 /* new page */
-.add-btn{
+.add-btn, .update-btn, .button a, .button button{
   background-color: #E9762B !important;
   border: none !important;
+}
+
+/* show page */
+.listImg{
+  border-radius: 1rem;
+  object-fit: cover;
+  width: 100vw;
+}
+
+.button{
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+
+.button a{
+  margin-left: 50px;
 }
 

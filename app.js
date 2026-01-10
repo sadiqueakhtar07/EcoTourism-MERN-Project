@@ -6,6 +6,7 @@ const Listing=require('./models/listing.js');
 const path= require('path');
 const methodOverride= require('method-override');
 const ejsMate=require('ejs-mate');
+const wrapAsync = require('./utils/wrapAsync.js');
 
 const DB_URL="mongodb://127.0.0.1:27017/ecotourism";
 
@@ -53,8 +54,8 @@ app.get('/listings/:id', async(req,res)=>{
 //create route
 app.post('/listings', async(req,res)=>{    
     const newListing = new Listing(req.body.listing);
-    console.log(newListing);
-    newListing.save();
+    // console.log(newListing);
+    await newListing.save();
     res.redirect('/listings');
 });
 
@@ -81,7 +82,11 @@ app.delete('/listings/:id', async(req,res)=>{
 
 app.get('/',(req,res)=>{
     res.send('Server is running....');
-})
+});
+
+app.use((err,req,res,next)=>{
+    res.send("Something went wrong!!");
+});
 
 app.listen(PORT,()=>{
     console.log(`App is running on port: ${PORT}`);

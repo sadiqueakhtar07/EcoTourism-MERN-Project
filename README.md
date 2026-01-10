@@ -1,2 +1,2 @@
-# EcoTourism-MERN-Project
-Project Based on Tourism using MERN
+# EcoTourism->EJS(Node.js)+Express
+Project Based on Tourism using Node.js + Express
